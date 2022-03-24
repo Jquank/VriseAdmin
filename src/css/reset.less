@@ -34,7 +34,7 @@ p {
     --el-menu-hover-color: var(--nav-hover-color);
     --el-menu-bg-color: var(--nav-bg-color);
     --el-menu-hover-bg-color: none;
-    --el-menu-item-height: 50px;
+    --el-menu-item-height: var(--nav-item-height);
 
     .el-menu-item.is-active {
         background-color: var(--nav-active-bg-color);
@@ -64,7 +64,7 @@ p {
 .self-el-popper .el-menu {
     background-color: var(--nav-bg-color);
     padding: 0;
-    --el-menu-item-height: 50px;
+    --el-menu-item-height: var(--nav-item-height);
     & .el-sub-menu__title,& .el-menu-item{
         --el-menu-hover-bg-color: none;
         color: var(--nav-text-color);

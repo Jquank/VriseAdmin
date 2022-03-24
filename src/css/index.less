@@ -1,14 +1,14 @@
-
 @import './reset.less';
 
-
-
-
 :root {
+    --nav-item-height: 50px;
+}
+
+:root[theme-default] {
     --nav-bg-color: #001529; // 导航菜单背景色
     --nav-inline-bg-color: #0c2135; // 导航子菜单背景色
-    --nav-text-color: rgba(255,255,255,0.85); // 导航菜单文字颜色
-    --nav-hover-color:#fff; // 导航菜单文字hover颜色
+    --nav-text-color: rgba(255, 255, 255, 0.85); // 导航菜单文字颜色
+    --nav-hover-color: #fff; // 导航菜单文字hover颜色
     --nav-active-bg-color: var(--el-color-primary); // 导航菜单激活背景色
     --header-text-color: rgba(0, 0, 0, 0.7); // header文字颜色
     --header-hover-color: #eee; // header可点击处hover颜色
@@ -18,10 +18,10 @@
 :root[theme-dark] {
     --nav-bg-color: #212121;
     --nav-inline-bg-color: #2d2d2d;
-    --nav-text-color: rgba(255,255,255,0.85);
-    --nav-hover-color:#fff;
+    --nav-text-color: rgba(255, 255, 255, 0.85);
+    --nav-hover-color: #fff;
     --nav-active-bg-color: var(--el-color-primary);
-    --header-text-color: rgba(255,255,255, 0.7);
+    --header-text-color: rgba(255, 255, 255, 0.7);
     --header-hover-color: #242424;
     --header-bg-color: #1f1f1f;
 }
