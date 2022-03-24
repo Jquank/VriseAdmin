@@ -33,8 +33,8 @@ module.exports = {
                 semi: false,
                 tabWidth: 4,
                 trailingComma: 'none',
-                vueIndentScriptAndStyle: true
-                // endOfLIne: 'auto'
+                vueIndentScriptAndStyle: true,
+                endOfLIne: 'Lf'
             },
             { usePrettierrc: false }
         ]
