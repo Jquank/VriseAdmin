@@ -1,9 +1,26 @@
-import { createStore } from "vuex";
+import { InjectionKey } from 'vue'
+import { createStore, useStore as baseUseStore, Store } from 'vuex'
 
-export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+interface State {
+    collapse: boolean
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export default createStore<State>({
+    state: {
+        collapse: false
+    },
+    getters: {},
+    mutations: {
+        changeCollapse(state) {
+            state.collapse = !state.collapse
+        }
+    },
+    actions: {},
+    modules: {}
+})
+
+export function useStore() {
+    return baseUseStore(key)
+}
