@@ -24,6 +24,7 @@ module.exports = defineConfig({
         config.resolve.alias
             .set('components', resolve('src/components'))
             .set('views', resolve('src/views'))
+            .set('ex', resolve('src/examples'))
             .set('api', resolve('src/api'))
             .set('types', resolve('src/types'))
     }

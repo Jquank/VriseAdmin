@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import roleRouter from './roleRoute'
 import _ from 'lodash'
 import type { UserInfo } from '@/types/model/login'
-import { getToken, getUserInfo } from '@/api/model/login'
 
 const routes: Array<RouteRecordRaw> = [
     {

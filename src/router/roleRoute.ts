@@ -2,24 +2,30 @@ import { RouteRecordRaw } from 'vue-router'
 import EmptyRouterView from '@/components/EmptyRouterView.vue'
 const roleRouter: Array<RouteRecordRaw> = [
     {
-        path: '/SystemManage',
-        name: 'SystemManage',
-        meta: { title: '系统管理', icon: 'setting', deep: 1 },
+        path: '/AuthManage',
+        name: 'AuthManage',
+        meta: { title: '权限管理', icon: 'setting', deep: 1 },
         component: EmptyRouterView,
         children: [
             {
-                path: '/RoleManage',
-                name: 'RoleManage',
-                meta: { title: '角色管理', deep: 2 },
-                component: () => import('views/systemManage/RoleManage.vue')
+                path: '/MenuAuth',
+                name: 'MenuAuth',
+                meta: { title: '菜单权限', deep: 2 },
+                component: () => import('ex/authManage/MenuAuth.vue')
+            },
+            {
+                path: '/ButtonAuth',
+                name: 'ButtonAuth',
+                meta: { title: '按钮权限', deep: 2 },
+                component: () => import('ex/authManage/ButtonAuth.vue')
+            },
+            {
+                path: '/MenuAuthTest',
+                name: 'MenuAuthTest',
+                meta: { title: '权限测试页1', deep: 2 },
+                component: () => import('ex/authManage/TestAuth1.vue')
             }
         ]
-    },
-    {
-        path: '/RoleManage111',
-        name: 'RoleManage111',
-        meta: { title: '角色管理111', icon: 'setting', deep: 1 },
-        component: () => import('views/systemManage/RoleManage.vue')
     }
 ]
 export default roleRouter

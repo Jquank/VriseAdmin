@@ -76,9 +76,13 @@
         .layout-right {
             flex: 1;
             height: 100%;
+            display: flex;
+            flex-direction: column;
             .main-box {
+                flex: 1;
                 width: 100%;
                 overflow: hidden;
+                background-color: var(--main-box-bg-color);
             }
         }
     }
