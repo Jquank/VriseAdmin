@@ -10,23 +10,26 @@
 </template>
 
 <script lang="ts" setup>
-    import type { UserInfo } from './type'
+    import type { UserInfo } from '@/types/model/login'
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
+    import { getToken, getUserInfo } from '@/api/model/login'
     const router = useRouter()
     const username = ref('admin')
     const passward = ref('')
     let userInfo: UserInfo
-    const login = () => {
-        let menuAuth = username.value === 'admin' ? ['Home1', 'Home4', 'RoleManage222', 'RoleManage111'] : ['Home3']
-        userInfo = {
+    const login = async () => {
+        let token = await getToken()
+        sessionStorage.setItem('token', token)
+        const params = {
             username: username.value,
-            token: '12345',
-            roles: menuAuth
+            passward: passward.value
         }
-        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-        // sessionStorage.setItem('againAddRoutes', '1')
-        router.push('/Home')
+        getUserInfo(params).then((res) => {
+            userInfo = res
+            sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+        })
+        router.replace({ path: '/Home' })
     }
 </script>
 

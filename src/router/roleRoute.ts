@@ -11,15 +11,7 @@ const roleRouter: Array<RouteRecordRaw> = [
                 path: '/RoleManage',
                 name: 'RoleManage',
                 meta: { title: '角色管理', deep: 2 },
-                component: () => import('views/systemManage/RoleManage.vue'),
-                children: [
-                    {
-                        path: '/RoleManage222',
-                        name: 'RoleManage222',
-                        meta: { title: '角色管理222', deep: 3 },
-                        component: () => import('views/systemManage/RoleManage.vue')
-                    }
-                ]
+                component: () => import('views/systemManage/RoleManage.vue')
             }
         ]
     },

@@ -21,6 +21,10 @@ module.exports = defineConfig({
         ]
     },
     chainWebpack: (config) => {
-        config.resolve.alias.set('components', resolve('src/components')).set('views', resolve('src/views'))
+        config.resolve.alias
+            .set('components', resolve('src/components'))
+            .set('views', resolve('src/views'))
+            .set('api', resolve('src/api'))
+            .set('types', resolve('src/types'))
     }
 })

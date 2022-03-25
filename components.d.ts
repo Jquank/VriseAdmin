@@ -13,8 +13,6 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     EmptyRouterView: typeof import('./src/components/EmptyRouterView.vue')['default']
     Layout: typeof import('./src/components/Layout.vue')['default']
     MenuTree: typeof import('./src/components/MenuTree.vue')['default']

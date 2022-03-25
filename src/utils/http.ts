@@ -20,6 +20,8 @@ const axiosConfig: AxiosRequestConfig = {
     cancelRepeatRequest: false // 是否取消重复请求
 }
 const instance = axios.create(axiosConfig)
+const AUTH_TOKEN = sessionStorage.getItem('token') || ''
+instance.defaults.headers.common['Authorization'] = AUTH_TOKEN
 
 // 请求拦截
 instance.interceptors.request.use(
@@ -44,7 +46,7 @@ instance.interceptors.response.use(
     }
 )
 
-export const $http: HttpType<MethodType> = {
+const $http: HttpType<MethodType> = {
     get(url, params = {}, config) {
         params = config ? { params: params, ...config } : { params: params }
         return instance
@@ -91,3 +93,5 @@ export const $http: HttpType<MethodType> = {
         return Promise.resolve(url)
     }
 }
+
+export default $http

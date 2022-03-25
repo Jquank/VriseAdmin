@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import roleRouter from './roleRoute'
 import _ from 'lodash'
-import type { UserInfo } from '@/views/login/type'
+import type { UserInfo } from '@/types/model/login'
+import { getToken, getUserInfo } from '@/api/model/login'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -52,6 +53,10 @@ export const getRouterByRole = (arr: Array<RouteRecordRaw>, roles: string[]): Ar
     if (!roles) {
         return []
     }
+    if (roles.indexOf('All') > -1) {
+        // 此条件测试所有权限，可删除
+        return arr
+    }
     let i = 0
     while (i < arr.length) {
         const item = arr[i]
@@ -70,9 +75,9 @@ export const getRouterByRole = (arr: Array<RouteRecordRaw>, roles: string[]): Ar
 
 let refreshflag = false // 刷新标识
 router.beforeEach(async (to) => {
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '{}') as UserInfo
-
-    if (!userInfo.token) {
+    const token = sessionStorage.getItem('token') || ''
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '{"roles":[]}') as UserInfo
+    if (!token || !userInfo.roles) {
         if (to.name === 'Login') {
             return
         } else {
@@ -103,7 +108,7 @@ router.beforeEach(async (to) => {
                 }
             })
             // 添加404
-            router.addRoute({
+            router.addRoute('Layout', {
                 path: '/:pathMatch(.*)*',
                 name: 'NotFound',
                 component: () => import('@/views/other/404.vue'),

@@ -10,7 +10,5 @@ declare global {
   const ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
   const ElSelect: typeof import('element-plus/es')['ElSelect']
   const ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-  const ElTable: typeof import('element-plus/es')['ElTable']
-  const ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
 }
 export {}

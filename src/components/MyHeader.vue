@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="header-left">
-            <div @click="expandMenu" class="expand-icon header-handle-box">
+            <div @click="expandMenu" class="header-handle-box">
                 <el-icon :size="18">
                     <expand />
                 </el-icon>
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="header-right">
-            <div @click="settingTheme">
+            <div @click="settingTheme" class="header-handle-box">
                 <el-icon :size="18">
                     <setting />
                 </el-icon>
@@ -53,6 +53,8 @@
         color: var(--header-text-color);
         background-color: var(--header-bg-color);
         .header-handle-box {
+            display: flex;
+            align-items: center;
             cursor: pointer;
             height: 100%;
             padding: 0 10px 0 8px;
@@ -64,10 +66,6 @@
             display: flex;
             align-items: center;
             height: 100%;
-            .expand-icon {
-                display: flex;
-                align-items: center;
-            }
             .bread-nav {
                 display: flex;
                 align-items: center;
@@ -79,6 +77,9 @@
             .separator {
                 padding: 0 5px;
             }
+        }
+        .header-right {
+            height: 100%;
         }
     }
 </style>
