@@ -13,7 +13,11 @@
             <MyHeader></MyHeader>
             <section class="main-box">
                 <el-scrollbar>
-                    <router-view></router-view>
+                    <router-view #default="{ Component }">
+                        <transition name="section" appear>
+                            <component :is="Component"></component>
+                        </transition>
+                    </router-view>
                 </el-scrollbar>
             </section>
         </div>
@@ -21,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-    import type { NavMode } from './type'
+    import type { NavMode } from '@/types/common'
     import { ref, computed } from 'vue'
     import { useStore } from '@/store/index'
     import MyHeader from './MyHeader.vue'
@@ -79,11 +83,30 @@
             display: flex;
             flex-direction: column;
             .main-box {
+                position: relative;
                 flex: 1;
                 width: 100%;
                 overflow: hidden;
                 background-color: var(--main-box-bg-color);
+                & > .el-scrollbar {
+                    background-color: var(--main-box-bg-color);
+                    padding: 10px;
+                    position: absolute;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
             }
         }
+    }
+
+    .section-enter-active,
+    .section-leave-active {
+        transition: all 0.7s ease-in-out;
+    }
+
+    .section-enter-from,
+    .section-leave-to {
+        opacity: 0;
+        transform: translateX(-20px);
     }
 </style>

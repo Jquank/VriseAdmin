@@ -9,7 +9,7 @@
             <el-radio label="admin"></el-radio>
             <el-radio label="user"></el-radio>
         </el-radio-group>
-        <el-alert title="切换角色，控制菜单 权限测试页1 的显示隐藏" type="success" />
+        <el-alert title="观察左边菜单的变化" type="success" />
     </div>
 </template>
 

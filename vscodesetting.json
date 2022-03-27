@@ -1,0 +1,127 @@
+{
+    "editor.fontFamily": "'Helvetica Neue', Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "Monokai",
+    "files.eol": "\n",
+    "editor.fontSize": 18,
+    "editor.tabSize": 4,
+    "editor.lineHeight": 20,
+    "editor.fontLigatures": true,
+    "extensions.ignoreRecommendations": false,
+    "workbench.iconTheme": "vs-seti",
+    "search.followSymlinks": false,
+    "html.suggest.html5": true,
+    "html.format.preserveNewLines": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "html-css-class-completion.excludeGlobPattern": "",
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+    "window.zoomLevel": 0,
+    "editor.detectIndentation": false,
+    "editor.wordWrapColumn": 150,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.maxColumn": 80,
+    "editor.parameterHints.cycle": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "code-runner.runInTerminal": true,
+    "files.autoSave": "off",
+    "git.path": "D:\\Software\\git\\Git\\bin\\git.exe",
+    "emmet.preferences": {
+        "css.webkitProperties": "",
+        "css.mozProperties": "",
+        "css.oProperties": "",
+        "css.msProperties": ""
+    },
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "element-helper.version": "2.5",
+    "element-helper.pug-quotes": "single",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vetur.format.defaultFormatter.html": "prettyhtml",
+    "vetur.format.defaultFormatter.js": "prettier",
+    "vetur.format.defaultFormatterOptions": {
+        "prettyhtml": {
+            "printWidth": 150,
+            "wrapAttributes": false,
+            "sortAttributes": false,
+            "tabWidth": 4
+        },
+        "prettier": {
+            "printWidth": 120,
+            "singleQuote": true,
+            "semi": false,
+            "tabWidth": 4,
+            "trailingComma": "none",
+            "bracketSpacing": true,
+            "arrowParens": "always",
+            "vueIndentScriptAndStyle": true
+        }
+    },
+    "vetur.validation.template": true,
+    "vetur.validation.script": true,
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "none",
+    "prettier.bracketSpacing": true,
+    "prettier.arrowParens": "always",
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "prettier.vueIndentScriptAndStyle": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "eslint.autoFixOnSave": true
+    },
+    "eslint.validate": [
+        "typescript"
+    ],
+    "emmet.triggerExpansionOnTab": true,
+    "less.compile": {
+        "out": false
+    },
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "sync.autoDownload": false,
+    "sync.autoUpload": true,
+    "sync.gist": "",
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    "sync.removeExtensions": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.editorAssociations": {
+        "*.jfif": "default"
+    }
+}

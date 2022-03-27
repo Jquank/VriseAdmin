@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import roleRouter from './roleRoute'
 import _ from 'lodash'
-import type { UserInfo } from '@/types/model/login'
+import type { UserInfo } from '@/types/modules/login'
+import examplesRoute from './examplesRoute'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -27,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
         ]
     }
 ]
+
+const index = routes.findIndex((r) => r.name === 'Layout')
+examplesRoute.forEach((r) => {
+    routes[index].children?.push(r)
+})
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -95,7 +101,7 @@ router.beforeEach(async (to) => {
                 if (typeof r.name === 'string') {
                     if (router.hasRoute(r.name)) {
                         router.removeRoute(r.name)
-                        ;(routes[1].children || []).splice(1)
+                        // ;(routes[index].children || []).splice(1)
                     }
                 }
             })
@@ -103,7 +109,7 @@ router.beforeEach(async (to) => {
             matchRouter.forEach((r) => {
                 if (!router.hasRoute(r.name as string)) {
                     router.addRoute('Layout', r)
-                    ;(routes[1].children || []).push(r)
+                    ;(routes[index].children || []).push(r)
                 }
             })
             // 添加404

@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-    import type { NavMode } from './type'
+    import type { NavMode } from '@/types/common'
     import { useRouter } from 'vue-router'
-    import { ref, computed } from 'vue'
+    import { computed } from 'vue'
     import { useStore } from '@/store/index'
     import MenuTree from './MenuTree.vue'
     const store = useStore()

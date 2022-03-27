@@ -3,8 +3,6 @@
 declare global {
   const ElAlert: typeof import('element-plus/es')['ElAlert']
   const ElButton: typeof import('element-plus/es')['ElButton']
-  const ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-  const ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
   const ElIcon: typeof import('element-plus/es')['ElIcon']
   const ElInput: typeof import('element-plus/es')['ElInput']
   const ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -15,5 +13,8 @@ declare global {
   const ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
   const ElSelect: typeof import('element-plus/es')['ElSelect']
   const ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+  const ElSwitch: typeof import('element-plus/es')['ElSwitch']
+  const ElTable: typeof import('element-plus/es')['ElTable']
+  const ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
 }
 export {}

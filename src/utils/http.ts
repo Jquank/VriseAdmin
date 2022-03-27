@@ -14,7 +14,7 @@ interface HttpType<T> {
 
 // 创建axios实列
 const axiosConfig: AxiosRequestConfig = {
-    baseURL: 'https://mock.mengxuegu.com/mock/6178250f722e444f8c701af6/api',
+    baseURL: ' https://mock.mengxuegu.com/mock/623ec0649a111d2ee2cb4b5f/api',
     timeout: 1 * 60 * 1000,
     withCredentials: true,
     cancelRepeatRequest: false // 是否取消重复请求
@@ -35,6 +35,8 @@ instance.interceptors.request.use(
 // 响应拦截
 instance.interceptors.response.use(
     (res) => {
+        console.log(res)
+
         return res.data ? res.data : res
     },
     (err) => {

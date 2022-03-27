@@ -48,7 +48,7 @@
         align-items: center;
         height: 50px;
         text-align: center;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--default-border-color);
         box-sizing: border-box;
         color: var(--header-text-color);
         background-color: var(--header-bg-color);
