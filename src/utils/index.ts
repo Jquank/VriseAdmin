@@ -20,3 +20,17 @@ export function removeClass(el: HTMLElement, className: string) {
     classArray.splice(index, 1)
     el.className = classArray.join(' ')
 }
+
+interface Fn {
+    call: (arg1: any, arg: any) => void
+}
+export function throttle(fn: Fn, delay = 1000) {
+    let start = 0
+    return function (this: any, arg: any) {
+        const now = Date.now()
+        if (now - start >= delay) {
+            fn.call(this, arg)
+            start = now
+        }
+    }
+}

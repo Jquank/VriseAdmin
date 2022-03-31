@@ -20,10 +20,6 @@ declare module 'vue' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     EmptyRouterView: typeof import('./src/components/EmptyRouterView.vue')['default']
-    Layout: typeof import('./src/components/Layout.vue')['default']
-    MenuTree: typeof import('./src/components/MenuTree.vue')['default']
-    MyHeader: typeof import('./src/components/MyHeader.vue')['default']
-    MyNav: typeof import('./src/components/MyNav.vue')['default']
     SearchBar: typeof import('./src/components/SearchBar.vue')['default']
   }
 }

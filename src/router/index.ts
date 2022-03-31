@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Layout',
         meta: { title: 'Layout' },
         redirect: '/Home',
-        component: () => import('components/Layout.vue'),
+        component: () => import('@/layout/Layout.vue'),
         children: [
             {
                 path: '/Home',
