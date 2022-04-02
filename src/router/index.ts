@@ -1,39 +1,16 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import roleRouter from './roleRoute'
 import _ from 'lodash'
 import type { UserInfo } from '@/types/modules/login'
-import examplesRoute from './examplesRoute'
 
-const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/Login',
-        name: 'Login',
-        meta: { title: '登录' },
-        component: () => import('views/login/Login.vue')
-    },
-    {
-        path: '/',
-        name: 'Layout',
-        meta: { title: 'Layout' },
-        redirect: '/Home',
-        component: () => import('@/layout/Layout.vue'),
-        children: [
-            {
-                path: '/Home',
-                name: 'Home',
-                // deep为菜单层级，可用于处理el-menu递归菜单的样式
-                meta: { title: '首页', icon: 'setting', deep: 1 },
-                component: () => import('views/home/Home.vue')
-            }
-        ]
-    }
-]
+import { default as base } from './modules/base'
+import { default as systemManage } from './modules/systemManage'
+import { default as authExample } from './modules/authExample'
+
+const authRoutes = [...systemManage, ...authExample]
+
+const routes: Array<RouteRecordRaw> = base
 
 const index = routes.findIndex((r) => r.name === 'Layout')
-examplesRoute.forEach((r) => {
-    routes[index].children?.push(r)
-})
-
 const router = createRouter({
     history: createWebHashHistory(),
     routes
@@ -95,9 +72,9 @@ router.beforeEach(async (to) => {
             if (refreshflag) {
                 return
             }
-            const matchRouter = getRouterByRole(_.cloneDeep(roleRouter), userInfo.roles)
+            const matchRouter = getRouterByRole(_.cloneDeep(authRoutes), userInfo.roles)
             // 每次清空所有角色路由
-            roleRouter.forEach((r) => {
+            authRoutes.forEach((r) => {
                 if (typeof r.name === 'string') {
                     if (router.hasRoute(r.name)) {
                         router.removeRoute(r.name)

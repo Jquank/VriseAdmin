@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router'
 import EmptyRouterView from '@/components/EmptyRouterView.vue'
-const examplesRouter: Array<RouteRecordRaw> = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/AuthManage',
         name: 'AuthManage',
@@ -22,4 +22,4 @@ const examplesRouter: Array<RouteRecordRaw> = [
         ]
     }
 ]
-export default examplesRouter
+export default routes

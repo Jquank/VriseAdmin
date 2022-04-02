@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router'
 import EmptyRouterView from '@/components/EmptyRouterView.vue'
-const roleRouter: Array<RouteRecordRaw> = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/SystemManage',
         name: 'SystemManage',
@@ -16,4 +16,4 @@ const roleRouter: Array<RouteRecordRaw> = [
         ]
     }
 ]
-export default roleRouter
+export default routes

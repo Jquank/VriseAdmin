@@ -11,15 +11,14 @@
                 </el-icon>
             </div>
         </div>
-        <div ref="defaultSlot" class="default-slot-box">
+        <div ref="defaultSlot" class="default-slot-box default-slot-box-show">
             <slot></slot>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { addClass, removeClass } from '@/utils'
-    import { ref } from 'vue'
+    import { ref, onMounted } from 'vue'
 
     const props = defineProps({
         title: {
@@ -31,14 +30,21 @@
             default: '40px'
         }
     })
-    const defaultSlot = ref<HTMLElement>()
+    const defaultSlot = ref()
+    let height = ref(0)
+    let el: HTMLElement
+    onMounted(() => {
+        el = defaultSlot.value as HTMLElement
+        height.value = el.clientHeight
+        el.style.height = height.value + 'px'
+    })
+    // todo resize
+
     const arrowClick = () => {
-        const el = defaultSlot.value as HTMLElement
-        const height = el.clientHeight
-        if (height > 0) {
-            addClass(el, 'default-slot-hidden')
+        if (el.clientHeight > 0) {
+            el.style.height = '0'
         } else {
-            removeClass(el, 'default-slot-hidden')
+            el.style.height = height.value + 'px'
         }
     }
 </script>
@@ -46,14 +52,8 @@
 <style lang="less" scoped>
     .search-bar {
         background-color: var(--section-bg-color);
-        margin-bottom: 10px;
         .default-slot-box {
-            transition: all 2s;
-            min-height: 0;
-        }
-        .default-slot-hidden {
-            height: 0;
-            overflow: hidden;
+            transition: all 0.3s;
         }
     }
     .title {
@@ -76,10 +76,11 @@
     }
     :slotted(.search-box) {
         display: flex;
+        flex-wrap: wrap;
         padding: 10px;
         & > * {
-            width: 300px;
-            margin-right: 20px;
+            width: 220px;
+            margin: 0 20px 10px 0;
         }
     }
 </style>

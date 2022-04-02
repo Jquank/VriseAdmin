@@ -14,7 +14,7 @@
             <section class="main-box">
                 <el-scrollbar>
                     <router-view #default="{ Component }">
-                        <transition name="section" appear>
+                        <transition name="main" appear>
                             <component :is="Component"></component>
                         </transition>
                     </router-view>
@@ -99,13 +99,10 @@
         }
     }
 
-    .section-enter-active,
-    .section-leave-active {
-        transition: all 0.7s ease-in-out;
+    .main-enter-active {
+        transition: all 0.4s ease-in-out;
     }
-
-    .section-enter-from,
-    .section-leave-to {
+    .main-enter-from {
         opacity: 0;
         transform: translateX(-20px);
     }
