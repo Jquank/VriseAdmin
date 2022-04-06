@@ -8,7 +8,7 @@ export const getUserInfo = (info: Record<string, any>) => {
     return $http.ex('/api/xxx').then(() => {
         return {
             username: info.username,
-            roles: info.username === 'admin' ? ['All'] : ['Home', 'MenuAuth']
+            roles: info.username === 'admin' ? ['All'] : ['MenuAuth', 'ButtonAuth']
         }
     })
 }

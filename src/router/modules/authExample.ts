@@ -18,6 +18,12 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'ButtonAuth',
                 meta: { title: '按钮权限', deep: 2 },
                 component: () => import('ex/authManage/ButtonAuth.vue')
+            },
+            {
+                path: '/AuthTest',
+                name: 'AuthTest',
+                meta: { title: '权限测试页', deep: 2 },
+                component: () => import('ex/authManage/AuthTest.vue')
             }
         ]
     }

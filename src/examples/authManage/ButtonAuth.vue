@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
     import { ref } from 'vue'
-    import { getUserInfo } from '@/api/model/login'
+    import { getUserInfo } from '@/api/modules/login'
     import { useRouter } from 'vue-router'
     const router = useRouter()
     const username = JSON.parse(sessionStorage.getItem('userInfo') || '{}').username as string

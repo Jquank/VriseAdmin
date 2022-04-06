@@ -5,10 +5,26 @@ import type { UserInfo } from '@/types/modules/login'
 import { default as base } from './modules/base'
 import { default as systemManage } from './modules/systemManage'
 import { default as authExample } from './modules/authExample'
+import { default as pageExample } from './modules/pageExample'
 
-const authRoutes = [...systemManage, ...authExample]
+const authRoutes = [...authExample] // 权限路由
 
-const routes: Array<RouteRecordRaw> = base
+const routes: Array<RouteRecordRaw> = [
+    {
+        path: '/Login',
+        name: 'Login',
+        meta: { title: '登录' },
+        component: () => import('views/login/Login.vue')
+    },
+    {
+        path: '/',
+        name: 'Layout',
+        meta: { title: 'Layout' },
+        redirect: '/Home',
+        component: () => import('@/layout/Layout.vue'),
+        children: [...base, ...systemManage, ...pageExample]
+    }
+]
 
 const index = routes.findIndex((r) => r.name === 'Layout')
 const router = createRouter({

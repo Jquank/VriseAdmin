@@ -78,8 +78,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 10px;
-        & > * {
-            width: 220px;
+        & .el-input {
             margin: 0 20px 10px 0;
         }
     }

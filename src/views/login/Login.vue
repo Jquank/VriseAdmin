@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-    import type { UserInfo } from '@/types/model/login'
+    import type { UserInfo } from '@/types/modules/login'
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
-    import { getToken, getUserInfo } from '@/api/model/login'
+    import { getToken, getUserInfo } from '@/api/modules/login'
     const router = useRouter()
     const username = ref('admin')
     const passward = ref('')
