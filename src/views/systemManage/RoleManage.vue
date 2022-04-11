@@ -13,7 +13,7 @@
         </SearchBar>
         <transition name="box" appear>
             <div class="role-manage" v-show="showBox">
-                <el-table stripe border :data="tableData" style="width: 100%">
+                <el-table stripe border :data="tableData">
                     <el-table-column type="index" label="序号" width="60" align="center" />
                     <el-table-column prop="roleName" label="角色名称" align="center" />
                     <el-table-column prop="state" label="状态" align="center">

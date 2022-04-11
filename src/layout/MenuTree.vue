@@ -12,9 +12,14 @@
                 </el-icon>
                 <span>{{ item.meta.title }}</span>
             </template>
+            <!-- 递归MenuTree -->
             <MenuTree :menuData="item.children" v-if="item.children && item.children.length"></MenuTree>
         </el-sub-menu>
-        <el-menu-item v-else :index="item.path" :class="'el-menu-item-deep' + item.meta.deep">
+        <el-menu-item
+            v-if="!item.children && item.meta.show !== false"
+            :index="item.path"
+            :class="'el-menu-item-deep' + item.meta.deep"
+        >
             <el-icon v-if="item.meta.icon" :size="16">
                 <component :is="item.meta.icon"></component>
             </el-icon>

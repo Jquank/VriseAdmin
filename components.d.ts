@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CollapseWrapper: typeof import('./src/components/CollapseWrapper.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElForm: typeof import('element-plus/es')['ElForm']
@@ -23,7 +24,7 @@ declare module 'vue' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     EmptyRouterView: typeof import('./src/components/EmptyRouterView.vue')['default']
-    Loading: typeof import('element-plus/es')['ElLoadingDirective']
+    ListHeader: typeof import('./src/components/ListHeader.vue')['default']
     RaPagination: typeof import('./src/components/RaPagination.vue')['default']
     SearchBar: typeof import('./src/components/SearchBar.vue')['default']
   }

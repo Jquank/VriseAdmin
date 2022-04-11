@@ -5,5 +5,6 @@ declare module 'vue-router' {
       title: string,
       icon?: string, // el图标名
       deep?: number // 菜单深度
+      show?: boolean // 是否展示在菜单栏
   }
 }

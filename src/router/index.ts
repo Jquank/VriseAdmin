@@ -3,9 +3,10 @@ import _ from 'lodash'
 import type { UserInfo } from '@/types/modules/login'
 
 import { default as base } from './modules/base'
-import { default as systemManage } from './modules/systemManage'
+import systemManage from './modules/systemManage'
 import { default as authExample } from './modules/authExample'
 import { default as pageExample } from './modules/pageExample'
+import charts from './modules/charts'
 
 const authRoutes = [...authExample] // 权限路由
 
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: 'Layout' },
         redirect: '/Home',
         component: () => import('@/layout/Layout.vue'),
-        children: [...base, ...systemManage, ...pageExample]
+        children: [...base, ...systemManage, ...pageExample, ...charts]
     }
 ]
 
@@ -94,7 +95,6 @@ router.beforeEach(async (to) => {
                 if (typeof r.name === 'string') {
                     if (router.hasRoute(r.name)) {
                         router.removeRoute(r.name)
-                        // ;(routes[index].children || []).splice(1)
                     }
                 }
             })
@@ -102,7 +102,6 @@ router.beforeEach(async (to) => {
             matchRouter.forEach((r) => {
                 if (!router.hasRoute(r.name as string)) {
                     router.addRoute('Layout', r)
-                    ;(routes[index].children || []).push(r)
                 }
             })
             // 添加404

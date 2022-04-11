@@ -18,6 +18,12 @@ const routes: Array<RouteRecordRaw> = [
                         name: 'StandardList',
                         meta: { title: '标准列表页', deep: 3 },
                         component: () => import('ex/pageExample/listPage/StandardList.vue')
+                    },
+                    {
+                        path: '/DetailForm',
+                        name: 'DetailForm',
+                        meta: { title: '列表详情页', deep: 3, show: false },
+                        component: () => import('ex/pageExample/listPage/DetailForm.vue')
                     }
                 ]
             }

@@ -11,9 +11,11 @@
                 </el-icon>
             </div>
         </div>
-        <div ref="defaultSlot" class="default-slot-box default-slot-box-show">
+        <!-- <collapse-transition> -->
+        <div ref="defaultSlot" class="default-slot-box default-slot-box-show" v-show="showBox">
             <slot></slot>
         </div>
+        <!-- </collapse-transition> -->
     </div>
 </template>
 
@@ -32,6 +34,7 @@
     })
     const defaultSlot = ref()
     let height = ref(0)
+    const showBox = ref(true)
     let el: HTMLElement
     onMounted(() => {
         el = defaultSlot.value as HTMLElement
