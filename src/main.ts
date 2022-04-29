@@ -3,6 +3,7 @@ import router from './router/index'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
 import { Expand, Setting, ArrowDown } from '@element-plus/icons-vue'
+import 'element-plus/es/components/message/style/index'
 import './css/index.less'
 import store, { key } from './store/index'
 
