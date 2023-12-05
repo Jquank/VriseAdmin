@@ -2,13 +2,17 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import _ from 'lodash'
 import type { UserInfo } from '@/types/modules/login'
 
-import { default as base } from './modules/base'
-import systemManage from './modules/systemManage'
-import { default as authExample } from './modules/authExample'
-import { default as pageExample } from './modules/pageExample'
-import charts from './modules/charts'
+const requireContextFn = require.context('./modules', false, /\.ts$/)
+const RouterModules = requireContextFn.keys().map((k) => requireContextFn(k).default[0])
 
-const authRoutes = [...authExample] // 权限路由
+// import { default as base } from './modules/base'
+// import systemManage from './modules/systemManage'
+// import { default as authExample } from './modules/authExample'
+// import { default as pageExample } from './modules/pageExample'
+// import { default as webNotes } from './modules/webNotes'
+// import charts from './modules/charts'
+
+const authRoutes = RouterModules.filter((m) => m.name === 'AuthManage') // 权限路由
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -23,13 +27,12 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: 'Layout' },
         redirect: '/Home',
         component: () => import('@/layout/Layout.vue'),
-        children: [...base, ...systemManage, ...pageExample, ...charts]
+        children: RouterModules
     }
 ]
-
 const index = routes.findIndex((r) => r.name === 'Layout')
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHashHistory((window as any).__MICRO_APP_BASE_ROUTE__ || '/'),
     routes
 })
 

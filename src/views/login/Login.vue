@@ -1,11 +1,13 @@
 <template>
-    <div class="login">
-        <el-select v-model="username">
-            <el-option label="admin" value="admin"></el-option>
-            <el-option label="user" value="user"></el-option>
-        </el-select>
-        <el-input v-model="passward"></el-input>
-        <el-button @click="login" type="primary">登录</el-button>
+    <div class="login-wrapper">
+        <div class="login">
+            <el-select v-model="username">
+                <el-option label="admin" value="admin"></el-option>
+                <el-option label="user" value="user"></el-option>
+            </el-select>
+            <el-input v-model="passward"></el-input>
+            <el-button @click="login" type="primary">登录</el-button>
+        </div>
     </div>
 </template>
 
@@ -34,13 +36,25 @@
 </script>
 
 <style lang="less" scoped>
-    .login {
-        width: 300px;
-        height: 150px;
-        margin: auto;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+    .login-wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: var(--el-color-primary-light-3);
+        position: relative;
+        .login {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 150px;
+            background-color: #fff;
+            border-radius: 2px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
     }
 </style>

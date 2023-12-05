@@ -12,13 +12,18 @@
         <div class="layout-right">
             <MyHeader></MyHeader>
             <section class="main-box">
-                <el-scrollbar>
+                <el-scrollbar v-if="$route.path !== '/LyricsEffect'">
                     <router-view #default="{ Component }">
                         <transition name="main" appear>
                             <component :is="Component"></component>
                         </transition>
                     </router-view>
                 </el-scrollbar>
+                <router-view v-else #default="{ Component }">
+                    <transition name="main" appear>
+                        <component :is="Component"></component>
+                    </transition>
+                </router-view>
             </section>
         </div>
     </div>

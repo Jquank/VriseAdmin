@@ -1,90 +1,117 @@
 <template>
-    <div>
-        <el-select v-model="value.v" value-key="id">
-            <el-option v-for="item in options" :key="item.id" :label="item.label" :value="item"></el-option>
-        </el-select>
+    <el-tree
+        ref="treeRef"
+        :data="data"
+        show-checkbox
+        default-expand-all
+        node-key="id"
+        highlight-current
+        :props="defaultProps"
+    />
+
+    <div class="buttons">
+        <el-button @click="getCheckedNodes">get by node</el-button>
+        <el-button @click="getCheckedKeys">get by key</el-button>
+        <el-button @click="setCheckedNodes">set by node</el-button>
+        <el-button @click="setCheckedKeys">set by key</el-button>
+        <el-button @click="resetChecked">reset</el-button>
     </div>
 </template>
 
-<script setup lang="ts">
-    import { ref, reactive, watch } from 'vue'
-    import { useRoute } from 'vue-router'
-    import { ClickOutside as vClickOutside } from 'element-plus'
-    import { ElMessage } from 'element-plus'
-    const route = useRoute()
-    watch(
-        () => route,
-        (val) => {
-            console.log(val, 'wwwwwww')
+<script lang="ts" setup>
+    import { ref } from 'vue'
+    import type { ElTree } from 'element-plus'
+    import type Node from 'element-plus/es/components/tree/src/model/node'
+
+    interface Tree {
+        id: number
+        label: string
+        children?: Tree[]
+    }
+
+    const treeRef = ref<InstanceType<typeof ElTree>>()
+
+    const getCheckedNodes = () => {
+        console.log(treeRef.value!.getCheckedNodes(false, false))
+    }
+    const getCheckedKeys = () => {
+        console.log(treeRef.value!.getCheckedKeys(false))
+    }
+    const setCheckedNodes = () => {
+        treeRef.value!.setCheckedNodes(
+            [
+                {
+                    id: 5,
+                    label: 'Level two 2-1'
+                },
+                {
+                    id: 9,
+                    label: 'Level three 1-1-1'
+                }
+            ] as Node[],
+            false
+        )
+    }
+    const setCheckedKeys = () => {
+        treeRef.value!.setCheckedKeys([3], false)
+    }
+    const resetChecked = () => {
+        treeRef.value!.setCheckedKeys([], false)
+    }
+
+    const defaultProps = {
+        children: 'children',
+        label: 'label'
+    }
+
+    const data: Tree[] = [
+        {
+            id: 1,
+            label: 'Level one 1',
+            children: [
+                {
+                    id: 4,
+                    label: 'Level two 1-1',
+                    children: [
+                        {
+                            id: 9,
+                            label: 'Level three 1-1-1'
+                        },
+                        {
+                            id: 10,
+                            label: 'Level three 1-1-2'
+                        }
+                    ]
+                }
+            ]
         },
-        { immediate: true }
-    )
-    const value = reactive({
-        v: { id: 1, label: '111' }
-    })
-    const value1 = ref('')
-    const input = ref('')
-    const option1 = ref()
-    const hhh = ref(null)
-    const widthQ = ref(0)
-    const expandChange = () => {
-        let el = document.getElementsByClassName('aaa')[0]
-        let el1 = document.getElementsByClassName('ccc')[0] as HTMLDivElement
-        // console.log(option1.value)
-
-        // option1.value.$el.style.width = el.clientWidth + 'px'
-        // console.dir(el1)
-        // document.getElementsByClassName('ccc')[0].style.width = el.clientWidth + 'px'
-    }
-    const innerOption = (e: MouseEvent) => {
-        // e.stopPropagation()
-    }
-    const aaa = (a: any, b: any) => {
-        console.log(11111111)
-
-        return
-    }
-    const aaa1 = () => {
-        ElMessage({
-            type: 'success',
-            duration: 1000000,
-            message: 'Centered text'
-        })
-    }
-    const options = ref([{ id: 2, label: '222' }])
-    // interface Tt<T> {
-    //     a: number
-    //     b: T
-    // }
-    // type Required<T> = { [P in keyof T]: T[P] }
-
-    // let aaa: Required<Tt<string>> = {
-    //     a: 1,
-    //     b: '222'
-    // }
-    // console.log(aaa)
-    // type Pick<T, K extends keyof T> = { [P in K]: T[P] }
-
-    // interface Bb {
-    //     a: number
-    //     b: string
-    // }
-    // let bbb: Pick<Bb, 'a'> = {
-    //     a: 0
-    // }
-    // console.log(bbb)
-
-    // type T = Exclude<1 | 2, 1 | 3>
-    // let ccc: T = 2
-
-    // function foo(x: number): Array<number> {
-    //     return [x]
-    // }
-    // type fn = ReturnType<typeof foo>
+        {
+            id: 2,
+            label: 'Level one 2',
+            children: [
+                {
+                    id: 5,
+                    label: 'Level two 2-1'
+                },
+                {
+                    id: 6,
+                    label: 'Level two 2-2'
+                }
+            ]
+        },
+        {
+            id: 3,
+            label: 'Level one 3',
+            children: [
+                {
+                    id: 7,
+                    label: 'Level two 3-1'
+                },
+                {
+                    id: 8,
+                    label: 'Level two 3-2'
+                }
+            ]
+        }
+    ]
 </script>
-
-<style lang="less">
-    .ccc {
-        width: v-bind('widthQ');
-    }
-</style>

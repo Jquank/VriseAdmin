@@ -8,3 +8,4 @@ declare module 'vue-router' {
       show?: boolean // 是否展示在菜单栏
   }
 }
+

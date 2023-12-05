@@ -26,6 +26,24 @@ const routes: Array<RouteRecordRaw> = [
                         component: () => import('ex/pageExample/listPage/DetailForm.vue')
                     }
                 ]
+            },
+            {
+                path: '/drag',
+                name: 'Drag',
+                meta: { title: '拖拽', deep: 2 },
+                component: () => import('ex/pageExample/drag/index.vue')
+            },
+            {
+                path: '/drag1',
+                name: 'Drag1',
+                meta: { title: '拖拽1', deep: 2 },
+                component: () => import('ex/pageExample/drag/index1.vue')
+            },
+            {
+                path: '/upload',
+                name: 'upload',
+                meta: { title: 'upload', deep: 2 },
+                component: () => import('ex/pageExample/upload/index.vue')
             }
         ]
     }

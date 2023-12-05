@@ -18,7 +18,12 @@ module.exports = defineConfig({
             Components({
                 resolvers: [ElementPlusResolver()]
             })
-        ]
+        ],
+        devServer: {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
     },
     chainWebpack: (config) => {
         config.resolve.alias
