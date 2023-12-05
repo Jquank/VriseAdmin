@@ -117,8 +117,8 @@
             ul {
                 transition: 0.5s;
                 li {
-                    height: 30px;
-                    line-height: 30px;
+                    height: 38px;
+                    line-height: 38px;
                     transition: 0.5s;
                 }
                 li.active {
