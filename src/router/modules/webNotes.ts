@@ -12,6 +12,12 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'LyricsEffect',
                 meta: { title: '歌词滚动', deep: 2 },
                 component: () => import('views/webNotes/lyricsEffect/index.vue')
+            },
+            {
+                path: '/eventloop',
+                name: 'eventloop',
+                meta: { title: '事件循环', deep: 2 },
+                component: () => import('views/webNotes/eventloop/index.vue')
             }
         ]
     }

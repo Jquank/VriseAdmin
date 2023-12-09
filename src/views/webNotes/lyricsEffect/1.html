@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    [1,2,3,4,5,6,7]
+    function f(){
+        let j = 0
+    outerloop: for (let i = 0; i < 5; i++) {
+        console.log(i,'iii');
+        while (j<10) {
+            console.log(j);
+            if(j===5) {
+                // break outerloop
+                return 'eee'
+            }
+            j++
+        }
+    }
+    return 'hhh'
+        
+    }
+   console.log(f()); 
+</script>
+</html>
